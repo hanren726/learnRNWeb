@@ -5,6 +5,15 @@
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Completeness */
-    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
-  }
+    "jsx": "react",
+    /* Visit https://aka.ms/tsconfig.json to read more about this file */
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": ["index.d.ts"],
+    /* Completeness */
+    "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
+    "lib": ["dom"]
+  },
+  "noImplicitAny": false
 }
