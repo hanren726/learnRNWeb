@@ -1,5 +1,6 @@
 const path = require('path');
 const appDirectory = path.resolve(__dirname, '../');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const tsLoaderConfiguration = {
   test: /\.tsx?$/,
@@ -20,6 +21,7 @@ const babelLoaderConfiguration = {
   include: [
     path.resolve(appDirectory, 'index.web.js'),
     path.resolve(appDirectory, 'src'),
+    path.resolve(appDirectory, 'node_modules/react-native'),
   ],
   use: {
     loader: 'babel-loader',
@@ -66,7 +68,12 @@ module.exports = {
     // your web-specific entry file
     path.resolve(appDirectory, 'index.web.js'),
   ],
-
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './web/index.html',
+      publicPath: '/',
+    }),
+  ],
   // configures where the build ends up
   output: {
     filename: 'bundle.[chunkhash].js',
